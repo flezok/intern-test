@@ -1,5 +1,14 @@
-# Mantine Vite template
+Для запуска проекта необходимо:
+1) Открыть командную строку
+2) Перейти в корневую папку проекта
+3) Написать: 1. npm i
+             2. npm run dev
+4) Открыть указанный адрес в браузере
 
-Get started with the template by clicking `Use this template` button on the top of the page.
-
-[Documentation](https://mantine.dev/guides/vite/)
+Используемые технологии и библиотеки:
+1) ReactJS
+2) vite
+3) Mantine
+4) react-router-dom - для навигации сайта
+5) axios - для запросов на сервер
+6) sсss - для написания стилей
