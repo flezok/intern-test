@@ -23,3 +23,14 @@
     }
 }
 
+@media (max-width: 880px){
+    .form__wrapper{
+        form{
+            width: 100%;
+        }
+        
+        .form__title{
+            width: 100%;
+        }
+    }
+}

@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import FormRegistration from "./components/form/formRegistration/formRegistration";
 import FormAuthorization from "./components/form/formAuthorization/formAuthorization";
+import HomePage from "./components/homePage/homePage";
 
 export default function App() {
 
@@ -18,6 +19,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<FormRegistration/>}/>
           <Route path='/authorization' element={<FormAuthorization/>}/>
+          <Route path='/home' element={<HomePage/>}/>
         </Routes>
       </Router>
           

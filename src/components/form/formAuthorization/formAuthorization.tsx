@@ -1,10 +1,15 @@
 import { useForm } from '@mantine/form';
 import { TextInput, Button, Group, PasswordInput, Text, Title } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 import './formAuthorization.scss';
 
 
 const FormAuthorization = () => {
+
+    const navigate = useNavigate();
 
     const form = useForm({
         mode: 'uncontrolled',
@@ -19,12 +24,36 @@ const FormAuthorization = () => {
         },
     })
 
+    const handleSubmit = async(values) => {
+        const userData = {
+            email: values.email,
+            password: values.password,
+        }
+        
+        let options = {
+            method: 'POST',
+            url: 'http://20.205.178.13:8001/auth/login/',
+            data: userData
+        };
+
+        axios.request(options).then(function (response) {
+            if (response.status === 200) {
+                localStorage.setItem('authToken', response.data.auth_token);
+                localStorage.setItem('refreshToken', response.data.refresh_token);
+                navigate('/home');
+            }
+        }).catch(function (error) {
+            console.error(error);
+        });
+
+    }
+
     return (
         <div className='form__wrapper'>
             <Title className="form__title" order={2}>
                 Войти
             </Title>
-            <form onSubmit={form.onSubmit(console.log)}>
+            <form onSubmit={form.onSubmit((values) => handleSubmit(values))}>
                 <TextInput
                     mt="sm"
                     label="Email:"
